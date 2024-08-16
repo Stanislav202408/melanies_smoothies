@@ -64,7 +64,7 @@ if ingredients_list:
         dwh = "USE WAREHOUSE COMPUTE_DWH;"
         st.write(dwh)
         #session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
-        #session.sql(dwh).collect()
+        session.sql(dwh).collect()
         #session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered!', icon="✅")
 
