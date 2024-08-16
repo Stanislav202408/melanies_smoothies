@@ -21,11 +21,22 @@ connection_parameters = {
 }
 
 # Establish the connection
-conn = connect(connection_parameters)
+#conn = connect(connection_parameters)
+conn = connect(
+    account=connection_parameters['account'],
+    user=connection_parameters['user'],
+    password=connection_parameters['password'],
+    warehouse=connection_parameters['warehouse'],
+    database=connection_parameters['database'],
+    schema=connection_parameters['schema']
+)
+
 session = Session.builder.configs(connection_parameters).create()
 
+
+
 # Select the warehouse
-session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
+# session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
 
 
 
