@@ -54,7 +54,7 @@ if ingredients_list:
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
         
-    my_insert_stmt = """use warehouse COMPUTE_WH insert into smoothies.public.orders(ingredients,name_on_order)
+    my_insert_stmt = """use warehouse COMPUTE_WH; insert into smoothies.public.orders(ingredients,name_on_order)
             values ('""" + ingredients_string + """','""" + name_on_order + """')"""
 
     time_to_insert = st.button('Submit Order')
