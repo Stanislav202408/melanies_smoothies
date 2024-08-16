@@ -64,8 +64,8 @@ if ingredients_list:
 #        st.write(dwh)
 #        session.sql(dwh).collect()
 
-#        st.write(my_insert_stmt)  
-#        session.sql(my_insert_stmt).collect()        
+        st.write(my_insert_stmt)  
+#       session.sql(my_insert_stmt).collect()        
         st.success('Your Smoothie is ordered!', icon="✅")
 
 
