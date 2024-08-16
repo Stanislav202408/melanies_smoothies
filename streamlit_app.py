@@ -21,7 +21,7 @@ connection_parameters = {
 }
 
 # Establish the connection
-conn = connect(**connection_parameters)
+conn = connect(connection_parameters)
 session = Session.builder.configs(connection_parameters).create()
 
 # Select the warehouse
