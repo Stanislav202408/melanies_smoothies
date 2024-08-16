@@ -3,8 +3,33 @@ import streamlit as st
 #from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
+from snowflake.connector import connect
+from snowflake.snowpark import Session
+
 cnx = st.connection("snowflake")
 session = cnx.session()
+
+
+# Define your Snowflake connection parameters
+connection_parameters = {
+    'account': 'QEHRVKM-DX67949',
+    'user': 'STANISLAV',
+    'password': '3B.iT9Fe1929',
+    'warehouse': 'COMPUTE_DWH',
+    'database': 'SMOOTHIES',
+    'schema': 'PUBLIC',
+}
+
+# Establish the connection
+conn = connect(**connection_parameters)
+session = Session.builder.configs(connection_parameters).create()
+
+# Select the warehouse
+session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
+
+
+
+
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
