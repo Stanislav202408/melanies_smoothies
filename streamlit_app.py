@@ -34,7 +34,7 @@ conn = connect(
 session = Session.builder.configs(connection_parameters).create()
 
 # Select the warehouse
-#session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
+session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
@@ -108,7 +108,7 @@ conn = connect(
 )
 
 session = Session.builder.configs(connection_parameters).create()
-
+session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
     
 time_to_insert = st.button('Submit Order')
     
