@@ -61,7 +61,7 @@ if ingredients_list:
     time_to_insert = st.button('Submit Order')
     if time_to_insert:
         st.write(my_insert_stmt)
-        dwh = "USE WAREHOUSE COMPUTE_DWH"
+        dwh = "USE WAREHOUSE COMPUTE_DWH;"
         st.write(dwh)
         #session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
         #session.sql(dwh).collect()
