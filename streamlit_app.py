@@ -33,14 +33,8 @@ conn = connect(
 
 session = Session.builder.configs(connection_parameters).create()
 
-
-
 # Select the warehouse
 #session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
-
-
-
-
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
@@ -90,10 +84,36 @@ if ingredients_list:
 
  #   st.write(my_insert_stmt)
  #   st.stop()
-    time_to_insert = st.button('Submit Order')
+
+
+# Define your Snowflake connection parameters
+connection_parameters = {
+    'account': 'QEHRVKM-DX67949',
+    'user': 'STANISLAV',
+    'password': '3B.iT9Fe1929',
+    'warehouse': 'COMPUTE_DWH',
+    'database': 'SMOOTHIES',
+    'schema': 'PUBLIC',
+}
+
+# Establish the connection
+#conn = connect(connection_parameters)
+conn = connect(
+    account=connection_parameters['account'],
+    user=connection_parameters['user'],
+    password=connection_parameters['password'],
+    warehouse=connection_parameters['warehouse'],
+    database=connection_parameters['database'],
+    schema=connection_parameters['schema']
+)
+
+session = Session.builder.configs(connection_parameters).create()
+
     
-    #if ingredients_string:
-    if time_to_insert:
+time_to_insert = st.button('Submit Order')
+    
+   #if ingredients_string:
+if time_to_insert:
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered!', icon="✅")
 
