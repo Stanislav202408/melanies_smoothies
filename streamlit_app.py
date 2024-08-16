@@ -36,7 +36,7 @@ session = Session.builder.configs(connection_parameters).create()
 
 
 # Select the warehouse
-# session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
+session.sql("USE WAREHOUSE COMPUTE_DWH").collect()
 
 
 
